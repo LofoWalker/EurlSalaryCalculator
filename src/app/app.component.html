@@ -1,0 +1,42 @@
+<h1>Calcul ton salaire</h1>
+
+<div id="tjm">
+    <h2>TJM</h2>
+    <label for="tjm-input" style="margin-right: 1em;">Entrez votre TJM</label>
+    <input id="tjm-input" type="text" [(ngModel)]="tjm"/>
+</div>
+
+<div id="frais">
+    <h2>Frais</h2>
+
+    <div style="margin: 2em;">
+        <div style="margin-bottom: 2em;">
+            <label for="fee-name" style="margin-right: 1em;">Frais</label>
+            <input id="fee-name" type="text" [(ngModel)]="tmpFeeName" style="margin-right: 1em;"/>
+            <label for="fee-value" style="margin-right: 1em;">Montant</label>
+            <input id="fee-value" type="text" [(ngModel)]="tmpFeeValue"/>
+        </div>
+        <button (click)="addFee()">Ajouter un frais</button>
+    </div>
+
+    <div style="margin: 2em">
+        <ng-container *ngFor="let key of fees.keys()">
+            <p>{{key}}: {{fees.get(key)}} € <button (click)="removeFee(key)">Supprimer ce frais</button></p>
+        </ng-container>
+    </div>
+    <div id="fee-total">
+        <p>Montant de frais total : {{getTotalFee()}}</p>
+    </div>
+</div>
+
+<div id="ca">
+    <h2>Votre CA est de : {{getCa()}}</h2>
+</div>
+<div id="cs">
+    <h2>Le montant de vos charges sociales est de : {{getCs()}}</h2>
+</div>
+<div id="benef">
+    <h2>Votre bénéfice annuel est de : {{getBenef()}}</h2>
+    <h2>Votre bénéfice mensuel est de : {{getBenef() / 12}}</h2>
+    <h2>Votre bénéfice mensuel net après impots : {{getBenefAfterIr()}}</h2>
+</div>
