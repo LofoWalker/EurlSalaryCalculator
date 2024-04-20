@@ -1,27 +1,31 @@
-# EurlSalaryCalculator
+# EURL Salary Calculator
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.5.
+Bienvenue à EURL Salary Calculator, une application web qui permet aux propriétaires d'Entreprise Unipersonnelle à Responsabilité Limitée (EURL) de calculer leurs bénéfices de manière efficace.
 
-## Development server
+## Fonctionnalités
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Permet de calculer le chiffre d'affaires en fonction du prix journalier moyen (TJM)
+- Ajout des dépenses liées à l'entreprise et leur déduction du chiffre d'affaires afin de trouver le bénéfice net
+- Gérer activement vos frais par un système de suivi des dépenses
+- Calcul des charges sociales
+- Calcul du bénéfice annuel et mensuel
 
-## Code scaffolding
+## Comment commencer
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Ce projet est généré avec [Angular CLI](https://github.com/angular/angular-cli) version 17.
 
-## Build
+### Prérequis
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Avant de commencer, assurez-vous d'avoir les outils suivants installés sur votre système :
 
-## Running unit tests
+- Node.js - [Télécharger ici](https://nodejs.org/en/)
+- npm (Node Package Manager) - vient avec l'installation de Node.js
+- Angular CLI - installez avec la commande `npm install -g @angular/cli`
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Installation
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. Clonez ce dépôt sur votre machine locale en utilisant `git clone https://github.com/<your-username>/eurl-salary-calculator.git`
+2. Naviguez jusqu'au répertoire du projet en utilisant la commande `cd eurl-salary-calculator`
+3. Installez les dépendances nécessaires avec la commande `npm install`
+4. Lancez le serveur de développement avec la commande `npm start`
+5. Ouvrez votre navigateur et accédez à `http://localhost:4200/`. L'application fonctionnera et se rechargera automatiquement si vous modifiez l'un des fichiers sources.
