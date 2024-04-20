@@ -1,1 +1,21 @@
 /* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+
+body {
+  background: #292E30;
+  font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+  color: whitesmoke;
+}
+
+h2 {
+  color: whitesmoke;
+}
+
+p, ul, li {
+  color: whitesmoke;
+}

@@ -1,0 +1,91 @@
+#main {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 3em;
+  flex-wrap: wrap;
+}
+
+#title {
+  font-size: 4em;
+  display: flex;
+  justify-content: center;
+}
+
+#tjm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#tjm-input {
+  background: #f08200;
+  border: solid 1px #f08200;
+  border-radius: 8px;
+  height: 7px;
+  width: 356px;
+  outline: none;
+  transition: background 450ms ease-in;
+  -webkit-appearance: none;
+}
+
+#tjm-input::-webkit-slider-thumb {
+  /* personnalise le bouton de glissement (thumb) */
+  -webkit-appearance: none; /* nécessaire pour Chrome */
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #f08200;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#new-fee {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2em;
+}
+
+#footer {
+  margin-top: 1em;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+}
+
+.colored {
+  color: #f08200;
+}
+
+.ml-4 {
+  margin-left: 4em;
+}
+
+.strike-through {
+  text-decoration: line-through;
+  opacity: 0.5;
+  color: #f08200;
+}
+
+.icon-button {
+  background: none;
+  color: #f08200;
+  border: none;
+  cursor: pointer;
+  width: 2em;
+}
+
+.fees-table {
+  max-height: 20vh;
+}
+
+.custom-input {
+  background-color: #292E30;
+  color: #f08200;
+  border-color: #f08200;
+}
+
+.slider-value {
+  color: whitesmoke;
+  font-size: 1.5em;
+}

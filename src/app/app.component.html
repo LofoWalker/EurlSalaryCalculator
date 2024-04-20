@@ -1,42 +1,67 @@
-<h1>Calcul ton salaire</h1>
+<h1 id="title">
+  <span class="colored">C</span>alculez votre bénéfice net
+</h1>
 
-<div id="tjm">
-    <h2>TJM</h2>
-    <label for="tjm-input" style="margin-right: 1em;">Entrez votre TJM</label>
-    <input id="tjm-input" type="text" [(ngModel)]="tjm"/>
-</div>
-
-<div id="frais">
-    <h2>Frais</h2>
-
-    <div style="margin: 2em;">
-        <div style="margin-bottom: 2em;">
-            <label for="fee-name" style="margin-right: 1em;">Frais</label>
-            <input id="fee-name" type="text" [(ngModel)]="tmpFeeName" style="margin-right: 1em;"/>
-            <label for="fee-value" style="margin-right: 1em;">Montant</label>
-            <input id="fee-value" type="text" [(ngModel)]="tmpFeeValue"/>
-        </div>
-        <button (click)="addFee()">Ajouter un frais</button>
+<div id="main">
+  <div id="amount">
+    <h2 id="tjm-title">Renseignez votre TJM</h2>
+    <div id="tjm">
+      <div class="slider-value" id="tjm-value">{{ tjm }} €</div>
+      <div>
+        <input id="tjm-input" type="range" min="100" max="2000" value="650" [(ngModel)]="tjm"/>
+      </div>
     </div>
 
-    <div style="margin: 2em">
-        <ng-container *ngFor="let key of fees.keys()">
-            <p>{{key}}: {{fees.get(key)}} € <button (click)="removeFee(key)">Supprimer ce frais</button></p>
-        </ng-container>
+    <h2 id="fee-title">Frais</h2>
+    <div id="new-fee">
+      <input class="custom-input" id="feeLabel-input" type="text" placeholder="Ajouter un frais" [(ngModel)]="newFeeLabel"/>
+      <input class="custom-input" id="feeAmount-input" type="number" placeholder="Montant" [(ngModel)]="newFeeAmount"/>
+      <button class="icon-button" id="add-fee" (click)="addFee()"><i class="fa fa-plus-circle"></i></button>
     </div>
-    <div id="fee-total">
-        <p>Montant de frais total : {{getTotalFee()}}</p>
+    <div id="fees">
+      <table id="fee-table" class="fees-table" style="color: whitesmoke">
+        <tbody>
+        <tr *ngFor="let fee of fees" style="height: 2em;" [ngClass]="{'strike-through': !fee.isActive}">
+          <td style="width: 10em">{{ fee.feeLabel }}</td>
+          <td style="width: 10em" class="colored">{{ fee.feeAmount | number:'1.0-0' }} €</td>
+          <td>
+            <button class="icon-button" (click)="deleteFee(fee)"><i class="fa fa-trash fa-lg"></i></button>
+            <button class="icon-button" (click)="fee.isActive = !fee.isActive">
+              <i *ngIf="fee.isActive" class="fas fa-ban fa-lg"></i>
+              <i *ngIf="!fee.isActive" class="fas fa-check-circle fa-lg"></i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+      <div id="fee-total">
+        <h3 class="colored">Montant de frais total : {{ getTotalFee() | number:'1.0-0' }} €</h3>
+      </div>
     </div>
+  </div>
+
+  <div id="result" style="color: whitesmoke">
+    <div id="ca">
+      <h2 id="ca-label">Chiffre d'affaire</h2>
+      <h3 id="ca-value" class="colored">{{ getSalesFigures().toFixed(0) | number:'1.0-0' }} €</h3>
+    </div>
+    <div id="cf">
+      <h2 id="cf-label">Charges</h2>
+      <h3 id="cf-value" class="colored">{{ getTotalFee().toFixed(0) | number:'1.0-0' }} €</h3>
+    </div>
+    <div id="cs">
+      <h2 id="cs-label">Charge sociale</h2>
+      <h3 id="cs-value" class="colored">{{ getSocialSecurityCharges().toFixed(0) | number:'1.0-0' }} €</h3>
+    </div>
+    <div id="benefits">
+      <h2 id="annual-benefits-label">Bénéfice annuel</h2>
+      <h3 id="annual-benefits-value" class="colored">{{ getBenefits().toFixed(0) | number:'1.0-0' }} €</h3>
+      <h2 id="monthly-benefits-label">Bénéfice mensuel</h2>
+      <h3 id="monthly-benefits-value" class="colored">{{ (getBenefits() / 12).toFixed(0) | number:'1.0-0' }} €</h3>
+    </div>
+  </div>
 </div>
 
-<div id="ca">
-    <h2>Votre CA est de : {{getCa()}}</h2>
-</div>
-<div id="cs">
-    <h2>Le montant de vos charges sociales est de : {{getCs()}}</h2>
-</div>
-<div id="benef">
-    <h2>Votre bénéfice annuel est de : {{getBenef()}}</h2>
-    <h2>Votre bénéfice mensuel est de : {{getBenef() / 12}}</h2>
-    <h2>Votre bénéfice mensuel net après impots : {{getBenefAfterIr()}}</h2>
-</div>
+<footer id="footer">
+  <h3>Crée par Tom Walker</h3>
+</footer>
