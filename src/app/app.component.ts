@@ -2,33 +2,26 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import {FormsModule} from '@angular/forms';
-import {HeaderComponent} from "./header/header.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, FormsModule, HeaderComponent],
+  imports: [CommonModule, RouterOutlet, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'EurlSalaryCalculator';
+  title = 'EurlNet';
 
   tjm: number = 500;
 
   newFeeLabel: string = "";
   newFeeAmount: number = 0;
   fees: Fee[] = [
-    {feeLabel: 'Voiture', feeAmount: 10000, isActive: true},
-    {feeLabel: 'Macbook', feeAmount: 4000, isActive: true},
-    {feeLabel: 'FAI', feeAmount: 600, isActive: true},
-    {feeLabel: 'IK', feeAmount: 2500, isActive: true},
+    {feeLabel: 'Ordinateur', feeAmount: 4000, isActive: true},
     {feeLabel: 'Restaurant', feeAmount: 2500, isActive: true},
-    {feeLabel: 'Chèque vacances', feeAmount: 2600, isActive: true},
-    {feeLabel: 'Cadeaux clients', feeAmount: 460, isActive: true},
+    {feeLabel: 'Chèques vacances', feeAmount: 2600, isActive: true},
     {feeLabel: 'CESU', feeAmount: 1800, isActive: true},
-    {feeLabel: 'Frais voitures', feeAmount: 2000, isActive: true},
-    {feeLabel: 'IDE', feeAmount: 250, isActive: true},
   ];
 
   getSalesFigures(): number {

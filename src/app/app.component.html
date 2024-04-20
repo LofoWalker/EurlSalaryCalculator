@@ -1,6 +1,5 @@
-<h1 id="title">
-  <span class="colored">C</span>alculez votre bénéfice net
-</h1>
+<h1 class="title colored">EurlNet</h1>
+<h1 class="title">Calculez les bénéfices de votre EURL</h1>
 
 <div id="main">
   <div id="amount">
@@ -16,17 +15,17 @@
     <div id="new-fee">
       <input class="custom-input" id="feeLabel-input" type="text" placeholder="Ajouter un frais" [(ngModel)]="newFeeLabel"/>
       <input class="custom-input" id="feeAmount-input" type="number" placeholder="Montant" [(ngModel)]="newFeeAmount"/>
-      <button class="icon-button" id="add-fee" (click)="addFee()"><i class="fa fa-plus-circle"></i></button>
+      <button class="icon-button colored" id="add-fee" (click)="addFee()"><i class="fa fa-plus-circle"></i></button>
     </div>
     <div id="fees">
       <table id="fee-table" class="fees-table" style="color: whitesmoke">
         <tbody>
-        <tr *ngFor="let fee of fees" style="height: 2em;" [ngClass]="{'strike-through': !fee.isActive}">
+        <tr *ngFor="let fee of fees" class="colored h-2" [ngClass]="{'strike-through': !fee.isActive}">
           <td style="width: 10em">{{ fee.feeLabel }}</td>
           <td style="width: 10em" class="colored">{{ fee.feeAmount | number:'1.0-0' }} €</td>
           <td>
-            <button class="icon-button" (click)="deleteFee(fee)"><i class="fa fa-trash fa-lg"></i></button>
-            <button class="icon-button" (click)="fee.isActive = !fee.isActive">
+            <button class="icon-button colored" (click)="deleteFee(fee)"><i class="fa fa-trash fa-lg"></i></button>
+            <button class="icon-button colored" (click)="fee.isActive = !fee.isActive">
               <i *ngIf="fee.isActive" class="fas fa-ban fa-lg"></i>
               <i *ngIf="!fee.isActive" class="fas fa-check-circle fa-lg"></i>
             </button>
@@ -41,6 +40,7 @@
   </div>
 
   <div id="result" style="color: whitesmoke">
+    <span>Pour 242 jours travaillés</span>
     <div id="ca">
       <h2 id="ca-label">Chiffre d'affaire</h2>
       <h3 id="ca-value" class="colored">{{ getSalesFigures().toFixed(0) | number:'1.0-0' }} €</h3>
@@ -50,7 +50,7 @@
       <h3 id="cf-value" class="colored">{{ getTotalFee().toFixed(0) | number:'1.0-0' }} €</h3>
     </div>
     <div id="cs">
-      <h2 id="cs-label">Charge sociale</h2>
+      <h2 id="cs-label">Charges sociales</h2>
       <h3 id="cs-value" class="colored">{{ getSocialSecurityCharges().toFixed(0) | number:'1.0-0' }} €</h3>
     </div>
     <div id="benefits">
@@ -63,5 +63,5 @@
 </div>
 
 <footer id="footer">
-  <h3>Crée par Tom Walker</h3>
+  <h3>Créé par Tom Walker</h3>
 </footer>

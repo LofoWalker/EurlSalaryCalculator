@@ -2,20 +2,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
 
+:root {
+  --main-color: #f08200;
+  --main-white: whitesmoke;
+  --main-background: #292E30;
+}
 
 body {
-  background: #292E30;
+  background: var(--main-background);
   font-family: 'Open Sans', sans-serif;
 }
 
-h1 {
-  color: whitesmoke;
-}
-
-h2 {
-  color: whitesmoke;
-}
-
-p, ul, li {
-  color: whitesmoke;
+h1, h2, p, ul, li {
+  color: var(--main-white);
 }
